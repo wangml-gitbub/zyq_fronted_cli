@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 
-import { program } from 'commander'
-import { create } from '../lib/create.js'
+
+const program = require('commander') // 自定义指令
+const create = require('../lib/create.js')
 
 program
   .version('0.1.0')
@@ -15,8 +16,8 @@ program
 
 
 
-  import chalk from 'chalk' // chalk 改变颜色
-  import figlet from 'figlet' // figlet 改变字体
+  const chalk = require('chalk') // chalk 改变颜色
+  const figlet = require('figlet') // figlet 改变字体
   program
   // 监听 --help 执行
   .on('--help', () => {
