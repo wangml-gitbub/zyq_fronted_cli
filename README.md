@@ -121,9 +121,9 @@ npm install commander
 ```bash
 #! /usr/bin/env node
 
-const program = require('commander')
+const commander = require('commander')
 
-program
+commander
 .version('0.1.0')
 .command('create <project name>')
 .discription('create a new project')
@@ -131,7 +131,7 @@ program
   console.log(res)
 })
 
-program.parse()
+commander.parse()
 ```
 
 8、将当前项目（zyq_fronted_cli） 链接到全局
@@ -150,10 +150,10 @@ npm install figlet
 ```bash
 #! /usr/bin/env node
 
-const program = require('commander') // 自定义指令
+const commander = require('commander') // 自定义指令
 
 // 自定义指令
-program
+commander
   .version('0.1.0')
   .command('create <project_name>')
   .description('create a new project')
@@ -166,8 +166,7 @@ program
 
 const chalk = require('chalk') // chalk 改变颜色
 const figlet = require('figlet') // figlet 改变字体
-program
-  .on('--help', () => { // 监听 --help 执行
+commander.on('--help', () => { // 监听 --help 执行
     
     console.log('\r\n' + figlet.textSync('ZYQ_FRONTED_CLI', {
       font: 'Ghost',
@@ -181,7 +180,7 @@ program
     console.log(`\r\nRun ${chalk.cyan(`zyq_fronted <command> --help`)} for detailed usage of given command\r\n`)
   })
 
-program.parse()
+commander.parse()
 ```
 
 10、在 lib 文件夹中创建 create.js 文件，用于编写创建文件所需的逻辑
@@ -212,10 +211,10 @@ cli.js 文件
 #! /usr/bin/env node
 
 
-const program = require('commander') // 自定义指令
+const commander = require('commander') // 自定义指令
 const create = require('../lib/create.js')
 
-program
+commander
   .version('0.1.0')
   .command('create <project_name>')
   .description('create a new project')
@@ -229,9 +228,8 @@ program
 
   const chalk = require('chalk') // chalk 改变颜色
   const figlet = require('figlet') // figlet 改变字体
-  program
-  // 监听 --help 执行
-  .on('--help', () => {
+  
+  commander.on('--help', () => { // 监听 --help 执行
     
     console.log('\r\n' + figlet.textSync('ZYQ_FRONTED_CLI', {
       font: 'Ghost',
@@ -245,7 +243,7 @@ program
     console.log(`\r\nRun ${chalk.cyan(`zyq_fronted <command> --help`)} for detailed usage of given command\r\n`)
   })
 
-program.parse()
+commander.parse()
 ```
 
 ```bash
@@ -624,10 +622,10 @@ cli.js 文件代码
 #! /usr/bin/env node
 
 
-const program = require('commander') // 自定义指令
+const commander = require('commander') // 自定义指令
 const create = require('../lib/create.js')
 
-program
+commander
   .version('0.1.0')
   .command('create <project_name>')
   .description('create a new project')
@@ -641,9 +639,8 @@ program
 
   const chalk = require('chalk') // chalk 改变颜色
   const figlet = require('figlet') // figlet 改变字体
-  program
-  // 监听 --help 执行
-  .on('--help', () => {
+
+  commander.on('--help', () => { // 监听 --help 执行
     
     console.log('\r\n' + figlet.textSync('ZYQ_FRONTED_CLI', {
       font: 'Ghost',
@@ -657,7 +654,7 @@ program
     console.log(`\r\nRun ${chalk.cyan(`zyq_fronted <command> --help`)} for detailed usage of given command\r\n`)
   })
 
-program.parse()
+commander.parse()
 ```
 
 create.js 文件代码
