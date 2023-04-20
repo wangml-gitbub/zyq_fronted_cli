@@ -166,6 +166,7 @@ commander
 
 const chalk = require('chalk') // chalk 改变颜色
 const figlet = require('figlet') // figlet 改变字体
+
 commander.on('--help', () => { // 监听 --help 执行
     
     console.log('\r\n' + figlet.textSync('ZYQ_FRONTED_CLI', {
