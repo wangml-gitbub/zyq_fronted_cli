@@ -1,10 +1,10 @@
 #! /usr/bin/env node
 
 
-const program = require('commander') // 自定义指令
+const commander = require('commander') // 自定义指令
 const create = require('../lib/create.js')
 
-program
+commander
   .version('0.1.0')
   .command('create <project_name>')
   .description('create a new project')
@@ -18,10 +18,9 @@ program
 
   const chalk = require('chalk') // chalk 改变颜色
   const figlet = require('figlet') // figlet 改变字体
-  program
-  // 监听 --help 执行
-  .on('--help', () => {
-    
+
+  commander.on('--help', () => { // 监听 --help 执行
+ 
     console.log('\r\n' + figlet.textSync('ZYQ_FRONTED_CLI', {
       font: 'Ghost',
       horizontalLayout: 'default',
@@ -30,8 +29,8 @@ program
       whitespaceBreak: true
     }))
 
-    // 新增说明信息
-    console.log(`\r\nRun ${chalk.cyan(`zyq_fronted <command> --help`)} for detailed usage of given command\r\n`)
+   
+    console.log(`\r\nRun ${chalk.cyan(`zyq_fronted <command> --help`)} for detailed usage of given command\r\n`) // 新增说明信息
   })
 
-program.parse()
+  commander.parse()
